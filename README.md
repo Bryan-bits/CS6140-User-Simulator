@@ -43,3 +43,19 @@ CS6140-User-Simulator/
 1. Never push directly to `main`
 2. Create your branch: `git checkout -b your-name-feature`
 3. Open a Pull Request and wait for review
+
+## Updated Run Commands
+1. Install dependencies: `pip install -r requirements.txt`
+2. Download MovieLens 1M into `data/ml-1m/`
+3. Run XGBoost baseline:
+   `python src/user_simulator.py --model xgboost --pooling mean --max-depth 6`
+4. Run GRU4Rec baseline:
+   `python src/user_simulator.py --model gru4rec --hidden-size 128 --max-seq-len 50`
+5. Check experiment outputs in `experiments/results.csv`
+
+## Core Pipeline
+- `src/data_loader.py`: loads MovieLens 1M, creates the binary `like` label, and performs chronological splitting.
+- `src/feature_engineering.py`: builds static user/movie features and GRU input sequences.
+- `src/xgboost_simulator.py`: tree-based baseline for static preference prediction.
+- `src/gru4rec_simulator.py`: sequential baseline using a GRU network in PyTorch.
+- `src/user_simulator.py`: main experiment runner and metrics logger.

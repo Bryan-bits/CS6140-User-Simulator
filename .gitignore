@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+venv/
+.venv/
+
+data/ml-1m/*.dat
+data/ml-1m/*.csv
+data/ml-1m/README
+
+experiments/*.json
